@@ -1,0 +1,16 @@
+<!doctype html>
+<title>QueryDataSystem</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<div class="container">
+<div class="jumbotron text-center">
+  <h1>Welcome to the QueryDataSystem!</h1>
+    {% if not session.query %}
+
+     <p>Please specify your column values.</p>
+    {% endif %}
+  {% for message in get_flashed_messages() %}
+    <div class="container-fluid">{{ message }}</div>
+    {% endfor %}
+  {% block body %}{% endblock %}
+</div>
+</div>

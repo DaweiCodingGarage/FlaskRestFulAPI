@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container" text-center>
+
+
+    <form class="form-horizontal" action="{{ url_for('query') }}" method="post" class="query" >
+
+      <div class="form-group">
+        <div class="row">
+         <label class="control-label col-md-2" for="service_code" >Service Code:</label>
+         <div class="col-md-10"><input type="Service_Code" class="form-control" placeholder="Enter service code" id="service_code" name = "service_code"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-md-2" for="package_type">Package Type:</label>
+          <div class="col-md-10"><input type="Package_Type" class="form-control" placeholder="Enter package type" id="package_type" name = "package_type"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-md-2" for="weight">Weight:</label>
+          <div class="col-md-10"><input type="Weight" class="form-control" placeholder="Enter weight" id="weight" name = "weight"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-md-2" for="zone">Zone:</label>
+          <div class="col-md-10"><input type="Zone" class="form-control" placeholder="Enter zone" id="zone" name = "zone"></div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-md-2" for="base_charge">Base Charge:</label>
+          <div class="col-md-10"><input type="base_charge" class="form-control" placeholder="Enter base charge" id="base_charge" name = "base_charge"></div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-md-2" for="effectivedate">Effective Date:</label>
+          <div class="col-md-10"><input type="effectivedate" class="form-control" placeholder="Enter effective date" id="effectivedate" name = "effectivedate"></div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-md-2" for="zone">Zone:</label>
+          <div class="col-md-10"><input type="Zone" class="form-control" placeholder="Enter zone" id="zone" name = "zone"></div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2"></div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-default">Query</button>
+        </div>
+          </div>
+      </div>
+
+
+
+
+    </form>
+
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <table class="table table-bordered table-striped text-center">
+        {% if session.query %}
+
+      <h3>Entries GET!</h3>
+
+        {% endif %}
+        {% for table in tables %}
+            {{ table|safe }}
+
+        {% endfor %}
+
+
+
+
+    </table>
+    </div>
+    <div class="col-md-2"></div>
+    </div>
+
+{% endblock %}
